@@ -1,44 +1,37 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
+    background-color: white;
+    color: black;
     margin: 0;
     padding: 20px;
-    transition: background-color 0.3s, color 0.3s;
 }
 
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #333;
+    background-color: #007BFF;
     color: white;
     padding: 10px;
+    text-align: center;
 }
 
-h1 {
-    margin: 0;
+h1, h2 {
+    margin: 20px 0;
+}
+
+section {
+    margin-bottom: 40px;
 }
 
 button {
-    background-color: #28a745;
+    background-color: #007BFF;
     color: white;
     border: none;
     padding: 10px 15px;
     cursor: pointer;
+    margin-top: 10px;
 }
 
 button:hover {
-    background-color: #218838;
-}
-
-section {
-    margin-bottom: 20px;
-    background: #fff;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s, color 0.3s;
+    background-color: #0056b3;
 }
 
 footer {
@@ -46,17 +39,19 @@ footer {
     margin-top: 20px;
 }
 
-/* Modo oscuro */
-.dark {
+.dark-theme {
     background-color: #333;
-    color: #f4f4f4;
+    color: white;
 }
 
-.dark header {
-    background: #222;
+.dark-theme header {
+    background-color: #0056b3;
 }
 
-.dark section {
-    background: #444;
-    color: #f4f4f4;
+.dark-theme button {
+    background-color: #0056b3;
+}
+
+.dark-theme button:hover {
+    background-color: #007BFF;
 }
