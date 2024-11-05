@@ -1,3 +1,8 @@
+function redirectToCymath(equation) {
+    const url = `https://www.cymath.com/solver/equation/${encodeURIComponent(equation)}`;
+    window.open(url, '_blank');
+}
+
 function calculateMean() {
     const values = [8, 12, 15, 10, 17];
     const mean = values.reduce((a, b) => a + b) / values.length;
@@ -15,22 +20,11 @@ function calculateMedian() {
 function calculateMode() {
     const values = [6, 9, 6, 11, 12, 9, 15];
     const frequency = {};
-    let maxFreq = 0;
-    let modes = [];
-    
-    for (const num of values) {
-        frequency[num] = (frequency[num] || 0) + 1;
-        if (frequency[num] > maxFreq) {
-            maxFreq = frequency[num];
-        }
-    }
-    
-    for (const num in frequency) {
-        if (frequency[num] === maxFreq) {
-            modes.push(num);
-        }
-    }
-
+    values.forEach(value => {
+        frequency[value] = (frequency[value] || 0) + 1;
+    });
+    const maxFrequency = Math.max(...Object.values(frequency));
+    const modes = Object.keys(frequency).filter(key => frequency[key] === maxFrequency);
     document.getElementById('modeResult').innerText = `La moda es: ${modes.join(', ')}`;
 }
 

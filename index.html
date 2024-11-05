@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <title>Estadística Básica</title>
 </head>
 <body>
@@ -14,8 +16,14 @@
         <section>
             <h2>1. Media</h2>
             <p>La media es el promedio de un conjunto de datos.</p>
-            <p><strong>Fórmula:</strong> <code>Media = Σx<sub>i</sub> / n</code></p>
-            <p><strong>Ejemplo:</strong> Para las edades 20, 25, 30, 35, y 40: <code>Media = (20 + 25 + 30 + 35 + 40) / 5 = 30</code></p>
+            <p><strong>Fórmula:</strong> 
+                <span id="mediaFormula"></span>
+                <button onclick="redirectToCymath('Media = Σx / n')">Procedimiento en Cymath</button>
+            </p>
+            <p><strong>Ejemplo:</strong> Para las edades 20, 25, 30, 35, y 40:</p>
+            <pre>
+Media = (20 + 25 + 30 + 35 + 40) / 5 = 30
+            </pre>
             <h3>Ejercicio:</h3>
             <p>Encuentra la media de los números: 8, 12, 15, 10, 17.</p>
             <button onclick="calculateMean()">Calcular Media</button>
@@ -25,8 +33,15 @@
         <section>
             <h2>2. Mediana</h2>
             <p>La mediana es el valor central de un conjunto de datos ordenado.</p>
-            <p><strong>Fórmula:</strong> Valor central si <code>n</code> es impar, promedio de los dos valores centrales si <code>n</code> es par.</p>
-            <p><strong>Ejemplo:</strong> Para los datos 15, 18, 22, 26, y 30, la mediana es 22.</p>
+            <p><strong>Fórmula:</strong> 
+                <span id="medianaFormula"></span>
+                <button onclick="redirectToCymath('Mediana')">Procedimiento en Cymath</button>
+            </p>
+            <p><strong>Ejemplo:</strong> Para los datos 15, 18, 22, 26, y 30, la mediana es 22:</p>
+            <pre>
+Ordenar: 15, 18, 22, 26, 30
+Mediana = 22 (valor central)
+            </pre>
             <h3>Ejercicio:</h3>
             <p>Encuentra la mediana de los valores: 10, 14, 18, 20, 22, 25, 30.</p>
             <button onclick="calculateMedian()">Calcular Mediana</button>
@@ -46,8 +61,14 @@
         <section>
             <h2>4. Rango</h2>
             <p>El rango es la diferencia entre el valor máximo y el mínimo.</p>
-            <p><strong>Fórmula:</strong> <code>Rango = Valor máximo - Valor mínimo</code></p>
-            <p><strong>Ejemplo:</strong> Para los datos 5, 10, 15, 20, y 25: <code>Rango = 25 - 5 = 20</code></p>
+            <p><strong>Fórmula:</strong> 
+                <span id="rangoFormula"></span>
+                <button onclick="redirectToCymath('Rango = Valor máximo - Valor mínimo')">Procedimiento en Cymath</button>
+            </p>
+            <p><strong>Ejemplo:</strong> Para los datos 5, 10, 15, 20, y 25:</p>
+            <pre>
+Rango = 25 - 5 = 20
+            </pre>
             <h3>Ejercicio:</h3>
             <p>Encuentra el rango de los valores: 8, 12, 20, 4, 15.</p>
             <button onclick="calculateRange()">Calcular Rango</button>
@@ -57,8 +78,16 @@
         <section>
             <h2>5. Desviación Media</h2>
             <p>La desviación media mide cuánto se desvían, en promedio, los valores de un conjunto de datos respecto a la media.</p>
-            <p><strong>Fórmula:</strong> <code>Desviación Media = Σ|x<sub>i</sub> - x̄| / n</code></p>
-            <p><strong>Ejemplo:</strong> Para los datos 10, 15, 20, 25, y 30, la desviación media es 6.</p>
+            <p><strong>Fórmula:</strong> 
+                <span id="desviacionMediaFormula"></span>
+                <button onclick="redirectToCymath('Desviación Media = Σ|x<sub>i</sub> - x̄| / n')">Procedimiento en Cymath</button>
+            </p>
+            <p><strong>Ejemplo:</strong> Para los datos 10, 15, 20, 25, y 30:</p>
+            <pre>
+1. Media = (10 + 15 + 20 + 25 + 30) / 5 = 20
+2. Desviaciones: |10 - 20| = 10, |15 - 20| = 5, |20 - 20| = 0, |25 - 20| = 5, |30 - 20| = 10
+3. Desviación Media = (10 + 5 + 0 + 5 + 10) / 5 = 6
+            </pre>
             <h3>Ejercicio:</h3>
             <p>Calcula la desviación media para los datos: 4, 8, 12, 16, 20.</p>
             <button onclick="calculateMeanDeviation()">Calcular Desviación Media</button>
@@ -68,17 +97,24 @@
         <section>
             <h2>6. Desviación Estándar</h2>
             <p>La desviación estándar indica cuánto varían los datos respecto a la media.</p>
-            <p><strong>Fórmula:</strong> <code>σ = √(Σ(x<sub>i</sub> - x̄)² / n)</code></p>
-            <p><strong>Ejemplo:</strong> Para los datos 5, 10, 10, 15, y 20, la desviación estándar es aproximadamente 5.1.</p>
+            <p><strong>Fórmula:</strong> 
+                <span id="desviacionEstandarFormula"></span>
+                <button onclick="redirectToCymath('σ = √(Σ(x<sub>i</sub> - x̄)² / n)')">Procedimiento en Cymath</button>
+            </p>
+            <p><strong>Ejemplo:</strong> Para los datos 5, 10, 10, 15, y 20:</p>
+            <pre>
+1. Media = (5 + 10 + 10 + 15 + 20) / 5 = 12
+2. Varianza = [(5 - 12)² + (10 - 12)² + (10 - 12)² + (15 - 12)² + (20 - 12)²] / 5 = 26
+3. Desviación Estándar = √26 ≈ 5.1
+            </pre>
             <h3>Ejercicio:</h3>
             <p>Calcula la desviación estándar para los datos: 3, 7, 7, 10, 13, 17.</p>
             <button onclick="calculateStandardDeviation()">Calcular Desviación Estándar</button>
             <p id="stdDevResult"></p>
         </section>
-        <section><h2>Listo Valdito</h2></section>
     </main>
     <footer>
-        <p>&copy; 2024 Kevin (Sucuboy)</p>
+        <p>&copy; 2024 Estadística Básica</p>
     </footer>
     <script src="script.js"></script>
 </body>
