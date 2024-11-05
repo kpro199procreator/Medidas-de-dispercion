@@ -5,255 +5,126 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Estadística Básica</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            renderMathInElement(document.body, {
-                delimiters: [
-                    { left: "\", right: "\", display: false },
-                    { left: "\", right: "\", display: true }
-                ]
-            });
-        });
-    </script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
-    <header>
-        <h1>Estadística Básica</h1>
-        <button id="toggleTheme">Modo Oscuro</button>
-    </header>
-    <main>
-        <section>
-            <h2>Media</h2>
-            <p><strong>Fórmula:</strong></p>
-            <p>
-\[
-                \text{Media} = \frac{\Sigma x_i}{n}
-\]
-            </p>
-            <p><strong>Ejemplo:</strong> Para los datos 8, 12, 15, 10, 17:</p>
-            <pre>
-\[
-\text{Media} = \frac{8 + 12 + 15 + 10 + 17}{5} = 12.4
-\]
-            </pre>
-            <h3>Procedimiento:</h3>
-            <pre>
-1. Sumar los datos: 8 + 12 + 15 + 10 + 17 = 62.
-2. Dividir por la cantidad de datos: \frac{62}{5} = 12.4.
-            </pre>
-            <h3>Ejercicio:</h3>
-            <p>Calcula la media para los datos: 5, 15, 20, 25, 30.</p>
-            <button onclick="calculateMean()">Calcular Media</button>
-            <p id="meanResult"></p>
-        </section>
 
-        <section>
-            <h2>Mediana</h2>
-            <p><strong>Fórmula:</strong></p>
-            <p>
-\[
-                \text{Mediana} =
-                \begin{cases}
-                    x_{\left(\frac{n+1}{2}\right)} & \text{si } n \text{ es impar} \\
-                    \frac{x_{\left(\frac{n}{2}\right)} + x_{\left(\frac{n}{2} + 1\right)}}{2} & \text{si } n \text{ es par}
-                \end{cases}
-\]
-            </p>
-            <p><strong>Ejemplo:</strong> Para los datos 10, 14, 18, 20, 22:</p>
-            <pre>
-\[
-\text{Mediana} = 18
-\]
-            </pre>
-            <h3>Procedimiento:</h3>
-            <pre>
-1. Ordenar los datos: 10, 14, 18, 20, 22.
-2. Encontrar el valor del medio: 18 (quinto elemento).
-            </pre>
-            <h3>Ejercicio:</h3>
-            <p>Calcula la mediana para los datos: 5, 3, 8, 1, 4.</p>
-            <button onclick="calculateMedian()">Calcular Mediana</button>
-            <p id="medianResult"></p>
-        </section>
+    <h1>Estadística Básica</h1>
+    <p>La estadística es una rama de las matemáticas que se encarga de recolectar, analizar e interpretar datos. En esta página, exploraremos los conceptos de media, moda, mediana, rango, desviación media y desviación estándar.</p>
 
-        <section>
-            <h2>Moda</h2>
-            <p><strong>Fórmula:</strong></p>
-            <p>
-\[
-                \text{Moda} = \text{valor más frecuente}
-\]
-            </p>
-            <p><strong>Ejemplo:</strong> Para los datos 6, 9, 6, 11, 12, 9, 15:</p>
-            <pre>
-\[
-\text{Moda} = 6, 9 \quad (\text{ambos aparecen más frecuentemente})
-\]
-            </pre>
-            <h3>Procedimiento:</h3>
-            <pre>
-1. Contar la frecuencia de cada dato.
-2. Identificar el valor o valores con mayor frecuencia.
-            </pre>
-            <h3>Ejercicio:</h3>
-            <p>Calcula la moda para los datos: 1, 2, 2, 3, 3, 3, 4.</p>
-            <button onclick="calculateMode()">Calcular Moda</button>
-            <p id="modeResult"></p>
-        </section>
+    <h2>1. Media</h2>
+    <p>La media, o promedio, es el valor obtenido al sumar todos los elementos de un conjunto y dividirlo entre el número total de elementos.</p>
+    <div class="equation">
+        $$ \text{Media} = \frac{\sum_{i=1}^{n} x_i}{n} $$
+    </div>
+    <h3>Ejemplo:</h3>
+    <p>Calculemos la media de los números: 2, 4, 6, 8, 10.</p>
+    <div class="equation">
+        $$ \text{Media} = \frac{2 + 4 + 6 + 8 + 10}{5} = \frac{30}{5} = 6 $$
+    </div>
+    <h3>Procedimiento:</h3>
+    <ol>
+        <li>Sumar todos los números: 2 + 4 + 6 + 8 + 10 = 30.</li>
+        <li>Contar la cantidad de números: hay 5 números.</li>
+        <li>Dividir la suma entre la cantidad de números: 30 \div 5 = 6.</li>
+    </ol>
 
-        <section>
-            <h2>Rango</h2>
-            <p><strong>Fórmula:</strong></p>
-            <p>
-\[
-                \text{Rango} = \text{Valor máximo} - \text{Valor mínimo}
-\]
-            </p>
-            <p><strong>Ejemplo:</strong> Para los datos: 5, 10, 15, 20, 25:</p>
-            <pre>
-\[
-\text{Rango} = 25 - 5 = 20
-\]
-            </pre>
-            <h3>Procedimiento:</h3>
-            <pre>
-1. Identificar el valor máximo: 25.
-2. Identificar el valor mínimo: 5.
-3. Calcular el rango: 25 - 5 = 20.
-            </pre>
-            <h3>Ejercicio:</h3>
-            <p>Encuentra el rango de los valores: 8, 12, 20, 4, 15.</p>
-            <button onclick="calculateRange()">Calcular Rango</button>
-            <p id="rangeResult"></p>
-        </section>
+    <h2>2. Moda</h2>
+    <p>La moda es el número que aparece con más frecuencia en un conjunto de datos. Puede haber más de una moda si varios números tienen la misma frecuencia máxima.</p>
+    <h3>Ejemplo:</h3>
+    <p>Para los números: 1, 2, 2, 3, 3, 3, 4, 5, la moda es:</p>
+    <div class="equation">
+        $$ \text{Moda} = 3 $$
+    </div>
+    <h3>Procedimiento:</h3>
+    <ol>
+        <li>Contar la frecuencia de cada número:</li>
+        <ul>
+            <li>1: 1 vez</li>
+            <li>2: 2 veces</li>
+            <li>3: 3 veces</li>
+            <li>4: 1 vez</li>
+            <li>5: 1 vez</li>
+        </ul>
+        <li>Identificar el número con mayor frecuencia: 3 aparece 3 veces.</li>
+    </ol>
+    <h3>Ejercicio:</h3>
+    <div class="exercise">
+        Dados los números: 3, 5, 5, 6, 7, 8, 8, 8, 10. ¿Cuál es la moda?
+    </div>
 
-        <section>
-            <h2>Desviación Media</h2>
-            <p><strong>Fórmula:</strong></p>
-            <p>
-\[
-                \text{Desviación Media} = \frac{\Sigma |x_i - \bar{x}|}{n}
-\]
-            </p>
-            <p><strong>Ejemplo:</strong> Para los datos: 4, 8, 12, 16, 20:</p>
-            <pre>
-\[
-\text{Desviación Media} = \frac{|4 - 12| + |8 - 12| + |12 - 12| + |16 - 12| + |20 - 12|}{5} = 4
-\]
-            </pre>
-            <h3>Procedimiento:</h3>
-            <pre>
-1. Calcular la media: \bar{x} = 12.
-2. Calcular las diferencias absolutas: |4 - 12|, |8 - 12|, |12 - 12|, |16 - 12|, |20 - 12|.
-3. Sumar las diferencias absolutas: 8 + 4 + 0 + 4 + 8 = 24.
-4. Dividir por la cantidad de datos: \frac{24}{5} = 4.8.
-            </pre>
-            <h3>Ejercicio:</h3>
-            <p>Calcula la desviación media para los datos: 10, 12, 14, 16.</p>
-            <button onclick="calculateMeanDeviation()">Calcular Desviación Media</button>
-            <p id="meanDeviationResult"></p>
-        </section>
+    <h2>3. Mediana</h2>
+    <p>La mediana es el valor que se encuentra en el medio de un conjunto de datos ordenados.</p>
+    <div class="equation">
+        $$ 
+        \text{Mediana} = 
+        \begin{cases} 
+        x_{\left(\frac{n+1}{2}\right)} & \text{si } n \text{ es impar} \\ 
+        \frac{x_{\left(\frac{n}{2}\right)} + x_{\left(\frac{n}{2} + 1\right)}}{2} & \text{si } n \text{ es par} 
+        \end{cases} 
+        $$
+    </div>
+    <h3>Ejemplo:</h3>
+    <p>Para los números: 1, 3, 3, 6, 7, 8, 9:</p>
+    <div class="equation">
+        $$ \text{Mediana} = 6 $$
+    </div>
+    <h3>Procedimiento:</h3>
+    <ol>
+        <li>Ordenar los números: 1, 3, 3, 6, 7, 8, 9.</li>
+        <li>Contar cuántos números hay: hay 7 números (impar).</li>
+        <li>Identificar el número del medio: x_{\left(\frac{7+1}{2}\right)} = x_4 = 6.</li>
+    </ol>
+    <h3>Ejercicio:</h3>
+    <div class="exercise">
+        Dados los números: 10, 12, 23, 23, 16, 23, 21, 16. ¿Cuál es la mediana?
+    </div>
 
-        <section>
-            <h2>Desviación Estándar</h2>
-            <p><strong>Fórmula:</strong></p>
-            <p>
-\[
-                \text{Desviación Estándar} = \sqrt{\frac{\Sigma (x_i - \bar{x})^2}{n}}
-\]
-            </p>
-            <p><strong>Ejemplo:</strong> Para los datos: 3, 7, 7, 10, 15:</p>
-            <pre>
-\[
-\text{Desviación Estándar} = \sqrt{\frac{(3 - 8.4)^2 + (7 - 8.4)^2 + (7 - 8.4)^2 + (10 - 8.4)^2 + (15 - 8.4)^2}{5}} \approx 3.72
-\]
-            </pre>
-            <h3>Procedimiento:</h3>
-            <pre>
-1. Calcular la media: \bar{x} = 8.4.
-2. Calcular las diferencias al cuadrado: (3 - 8.4)^2, (7 - 8.4)^2, (10 - 8.4)^2, (15 - 8.4)^2.
-3. Sumar las diferencias al cuadrado: 29.16 + 1.96 + 1.96 + 2.56 + 44.56 = 80.2.
-4. Dividir por la cantidad de datos: \frac{80.2}{5} = 16.04.
-5. Calcular la raíz cuadrada: \sqrt{16.04} \approx 4.01.
-            </pre>
-            <h3>Ejercicio:</h3>
-            <p>Calcula la desviación estándar para los datos: 5, 10, 15, 20.</p>
-            <button onclick="calculateStandardDeviation()">Calcular Desviación Estándar</button>
-            <p id="stdDeviationResult"></p>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2024 Estadística Básica</p>
-    </footer>
-    <script>
-        function calculateMean() {
-            const numbers = [5, 15, 20, 25, 30];
-            const sum = numbers.reduce((a, b) => a + b, 0);
-            const mean = sum / numbers.length;
-            document.getElementById('meanResult').innerText = 'La media es: ' + mean.toFixed(2);
-        }
+    <h2>4. Rango</h2>
+    <p>El rango es la diferencia entre el valor máximo y el mínimo de un conjunto de datos.</p>
+    <div class="equation">
+        $$ \text{Rango} = \text{Max} - \text{Min} $$
+    </div>
+    <h3>Ejemplo:</h3>
+    <p>Para los números: 3, 7, 2, 5:</p>
+    <div class="equation">
+        $$ \text{Rango} = 7 - 2 = 5 $$
+    </div>
+    <h3>Procedimiento:</h3>
+    <ol>
+        <li>Identificar el máximo: 7.</li>
+        <li>Identificar el mínimo: 2.</li>
+        <li>Restar el mínimo del máximo: 7 - 2 = 5.</li>
+    </ol>
+    <h3>Ejercicio:</h3>
+    <div class="exercise">
+        Dados los números: 5, 11, 3, 6, 9. ¿Cuál es el rango?
+    </div>
 
-        function calculateMedian() {
-            const numbers = [5, 3, 8, 1, 4];
-            numbers.sort((a, b) => a - b);
-            const n = numbers.length;
-            const median = n % 2 === 0 ?
-                (numbers[n / 2 - 1] + numbers[n / 2]) / 2 :
-                numbers[Math.floor(n / 2)];
-            document.getElementById('medianResult').innerText = 'La mediana es: ' + median;
-        }
-
-        function calculateMode() {
-            const numbers = [1, 2, 2, 3, 3, 3, 4];
-            const frequency = {};
-            let maxFreq = 0;
-            let mode = [];
-
-            numbers.forEach(num => {
-                frequency[num] = (frequency[num] || 0) + 1;
-                if (frequency[num] > maxFreq) {
-                    maxFreq = frequency[num];
-                }
-            });
-
-            for (const num in frequency) {
-                if (frequency[num] === maxFreq) {
-                    mode.push(num);
-                }
-            }
-
-            document.getElementById('modeResult').innerText = 'La moda es: ' + mode.join(', ');
-        }
-
-        function calculateRange() {
-            const numbers = [8, 12, 20, 4, 15];
-            const max = Math.max(...numbers);
-            const min = Math.min(...numbers);
-            const range = max - min;
-            document.getElementById('rangeResult').innerText = 'El rango es: ' + range;
-        }
-
-        function calculateMeanDeviation() {
-            const numbers = [10, 12, 14, 16];
-            const mean = numbers.reduce((a, b) => a + b, 0) / numbers.length;
-            const meanDeviation = numbers.reduce((a, b) => a + Math.abs(b - mean), 0) / numbers.length;
-            document.getElementById('meanDeviationResult').innerText = 'La desviación media es: ' + meanDeviation.toFixed(2);
-        }
-
-        function calculateStandardDeviation() {
-            const numbers = [5, 10, 15, 20];
-            const mean = numbers.reduce((a, b) => a + b, 0) / numbers.length;
-            const variance = numbers.reduce((a, b) => a + Math.pow(b - mean, 2), 0) / numbers.length;
-            const stdDeviation = Math.sqrt(variance);
-            document.getElementById('stdDeviationResult').innerText = 'La desviación estándar es: ' + stdDeviation.toFixed(2);
-        }
-
-        document.getElementById("toggleTheme").addEventListener("click", function() {
-            document.body.classList.toggle("dark-mode");
-        });
-    </script>
-</body>
-</html>
+    <h2>5. Desviación Media</h2>
+    <p>La desviación media es el promedio de las diferencias absolutas entre cada valor y la media del conjunto.</p>
+    <div class="equation">
+        $$ \text{Desviación Media} = \frac{\sum_{i=1}^{n} |x_i - \text{Media}|}{n} $$
+    </div>
+    <h3>Ejemplo:</h3>
+    <p>Para los números: 2, 4, 6, 8, 10.</p>
+    <div class="equation">
+        $$ \text{Media} = 6 $$
+    </div>
+    <p>Cálculo de la desviación media:</p>
+    <div class="equation">
+        $$ 
+        \text{Desviación Media} = \frac{|2-6| + |4-6| + |6-6| + |8-6| + |10-6|}{5} = \frac{4 + 2 + 0 + 2 + 4}{5} = \frac{12}{5} = 2.4 
+        $$
+    </div>
+    <h3>Procedimiento:</h3>
+    <ol>
+        <li>Calcular la media (ya calculada).</li>
+        <li>Restar la media de cada número y tomar el valor absoluto.</li>
+        <li>Sumar las diferencias absolutas.</li>
+        <li>Dividir la suma de las diferencias absolutas entre el número total de elementos.</li>
+    </ol>
+    <h3>Ejercicio:</h3>
+    <div class="exercise">
+        Dados los números
