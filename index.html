@@ -3,88 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estadística Básica</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <title>Estadística Básica</title>
 </head>
 <body>
     <header>
-        <h1>Estadística Básica: Medidas de Tendencia Central y Dispersión</h1>
+        <h1>Estadística Básica</h1>
         <button id="toggleTheme">Modo Oscuro</button>
     </header>
     <main>
         <section>
-            <h2>1. Media</h2>
-            <p>La media es el promedio de un conjunto de datos.</p>
-            <p><strong>Fórmula:</strong> 
-                <span id="mediaFormula">\( \text{Media} = \frac{\Sigma x}{n} \)</span>
-                <a href="https://www.cymath.com/solution/average-calculator" target="_blank"><button>Ver Procedimiento en Cymath</button></a>
+            <h2>Media</h2>
+            <p><strong>Fórmula:</strong></p>
+            <p>
+                \[
+                \text{Media} = \frac{\Sigma x_i}{n}
+                \]
+                <a href="https://www.cymath.com/solution/mean-calculator" target="_blank"><button>Ver Procedimiento en Cymath</button></a>
             </p>
-            <p><strong>Ejemplo:</strong> Para las edades 20, 25, 30, 35, y 40:</p>
+            <p><strong>Ejemplo:</strong> Para los datos 8, 12, 15, 10, 17:</p>
             <pre>
 \[
-\text{Media} = \frac{20 + 25 + 30 + 35 + 40}{5} = \frac{150}{5} = 30
+\text{Media} = \frac{8 + 12 + 15 + 10 + 17}{5} = 12.4
 \]
             </pre>
             <h3>Procedimiento:</h3>
             <pre>
-1. Sumar los valores: \( 20 + 25 + 30 + 35 + 40 = 150 \)
-2. Dividir entre el número de valores: \( \frac{150}{5} = 30 \)
+1. Sumar los datos: \( 8 + 12 + 15 + 10 + 17 = 62 \).
+2. Dividir por la cantidad de datos: \( \frac{62}{5} = 12.4 \).
             </pre>
             <h3>Ejercicio:</h3>
-            <p>Encuentra la media de los números: 8, 12, 15, 10, 17.</p>
+            <p>Calcula la media para los datos: 5, 15, 20, 25, 30.</p>
             <button onclick="calculateMean()">Calcular Media</button>
             <p id="meanResult"></p>
         </section>
 
         <section>
-            <h2>2. Mediana</h2>
-            <p>La mediana es el valor central de un conjunto de datos ordenado.</p>
-            <p><strong>Fórmula:</strong> 
-                <span id="medianaFormula">\( \text{Mediana} = \begin{cases} x_{\frac{n+1}{2}} & \text{si } n \text{ es impar} \\ \frac{x_{\frac{n}{2}} + x_{\frac{n}{2}+1}}{2} & \text{si } n \text{ es par} \end{cases} \)</span>
+            <h2>Mediana</h2>
+            <p><strong>Fórmula:</strong></p>
+            <p>
+                \[
+                \text{Mediana} =
+                \begin{cases}
+                    x_{\left(\frac{n+1}{2}\right)} & \text{si } n \text{ es impar} \\
+                    \frac{x_{\left(\frac{n}{2}\right)} + x_{\left(\frac{n}{2} + 1\right)}}{2} & \text{si } n \text{ es par}
+                \end{cases}
+                \]
                 <a href="https://www.cymath.com/solution/median-calculator" target="_blank"><button>Ver Procedimiento en Cymath</button></a>
             </p>
-            <p><strong>Ejemplo:</strong> Para los datos 15, 18, 22, 26, y 30:</p>
+            <p><strong>Ejemplo:</strong> Para los datos 10, 14, 18, 20, 22:</p>
             <pre>
 \[
-\text{Mediana} = 22
+\text{Mediana} = 18
 \]
             </pre>
             <h3>Procedimiento:</h3>
             <pre>
-1. Ordenar los datos: \( 15, 18, 22, 26, 30 \)
-2. Encontrar el valor central: Mediana = 22
+1. Ordenar los datos: 10, 14, 18, 20, 22.
+2. Encontrar el valor del medio: 18 (quinto elemento).
             </pre>
             <h3>Ejercicio:</h3>
-            <p>Encuentra la mediana de los valores: 10, 14, 18, 20, 22, 25, 30.</p>
+            <p>Calcula la mediana para los datos: 5, 3, 8, 1, 4.</p>
             <button onclick="calculateMedian()">Calcular Mediana</button>
             <p id="medianResult"></p>
         </section>
 
         <section>
-            <h2>3. Moda</h2>
-            <p>La moda es el valor que más se repite en un conjunto de datos.</p>
-            <p><strong>Ejemplo:</strong> Para los datos 4, 5, 5, 6, 7, 8, 8, 9:</p>
+            <h2>Moda</h2>
+            <p><strong>Fórmula:</strong></p>
+            <p>
+                \[
+                \text{Moda} = \text{valor más frecuente}
+                \]
+                <a href="https://www.cymath.com/solution/mode-calculator" target="_blank"><button>Ver Procedimiento en Cymath</button></a>
+            </p>
+            <p><strong>Ejemplo:</strong> Para los datos 6, 9, 6, 11, 12, 9, 15:</p>
             <pre>
 \[
-\text{Moda} = 5 \text{ y } 8
+\text{Moda} = 6, 9 \quad (\text{ambos aparecen más frecuentemente})
 \]
             </pre>
+            <h3>Procedimiento:</h3>
+            <pre>
+1. Contar la frecuencia de cada dato.
+2. Identificar el valor o valores con mayor frecuencia.
+            </pre>
             <h3>Ejercicio:</h3>
-            <p>Encuentra la moda de los valores: 6, 9, 6, 11, 12, 9, 15.</p>
+            <p>Calcula la moda para los datos: 1, 2, 2, 3, 3, 3, 4.</p>
             <button onclick="calculateMode()">Calcular Moda</button>
             <p id="modeResult"></p>
         </section>
 
         <section>
-            <h2>4. Rango</h2>
-            <p>El rango es la diferencia entre el valor máximo y el mínimo.</p>
-            <p><strong>Fórmula:</strong> 
-                <span id="rangoFormula">\( \text{Rango} = \text{Valor máximo} - \text{Valor mínimo} \)</span>
+            <h2>Rango</h2>
+            <p><strong>Fórmula:</strong></p>
+            <p>
+                \[
+                \text{Rango} = \text{Valor máximo} - \text{Valor mínimo}
+                \]
                 <a href="https://www.cymath.com/solution/range-calculator" target="_blank"><button>Ver Procedimiento en Cymath</button></a>
             </p>
-            <p><strong>Ejemplo:</strong> Para los datos 5, 10, 15, 20, y 25:</p>
+            <p><strong>Ejemplo:</strong> Para los datos: 5, 10, 15, 20, 25:</p>
             <pre>
 \[
 \text{Rango} = 25 - 5 = 20
@@ -92,9 +113,9 @@
             </pre>
             <h3>Procedimiento:</h3>
             <pre>
-1. Encontrar el valor máximo: 25
-2. Encontrar el valor mínimo: 5
-3. Calcular el rango: \( 25 - 5 = 20 \)
+1. Identificar el valor máximo: \( 25 \).
+2. Identificar el valor mínimo: \( 5 \).
+3. Calcular el rango: \( 25 - 5 = 20 \).
             </pre>
             <h3>Ejercicio:</h3>
             <p>Encuentra el rango de los valores: 8, 12, 20, 4, 15.</p>
@@ -103,64 +124,64 @@
         </section>
 
         <section>
-            <h2>5. Desviación Media</h2>
-            <p>La desviación media mide cuánto se desvían, en promedio, los valores de un conjunto de datos respecto a la media.</p>
-            <p><strong>Fórmula:</strong> 
-                <span id="desviacionMediaFormula">\( \text{Desviación Media} = \frac{\Sigma |x_i - \bar{x}|}{n} \)</span>
+            <h2>Desviación Media</h2>
+            <p><strong>Fórmula:</strong></p>
+            <p>
+                \[
+                \text{Desviación Media} = \frac{\Sigma |x_i - \bar{x}|}{n}
+                \]
                 <a href="https://www.cymath.com/solution/mean-deviation-calculator" target="_blank"><button>Ver Procedimiento en Cymath</button></a>
             </p>
-            <p><strong>Ejemplo:</strong> Para los datos 10, 15, 20, 25, y 30:</p>
+            <p><strong>Ejemplo:</strong> Para los datos: 4, 8, 12, 16, 20:</p>
             <pre>
 \[
-\text{Media} = 20
-\]
-\[
-\text{Desviación Media} = \frac{|10 - 20| + |15 - 20| + |20 - 20| + |25 - 20| + |30 - 20|}{5} = \frac{10 + 5 + 0 + 5 + 10}{5} = 6
+\text{Desviación Media} = \frac{|4 - 12| + |8 - 12| + |12 - 12| + |16 - 12| + |20 - 12|}{5} = 4
 \]
             </pre>
             <h3>Procedimiento:</h3>
             <pre>
-1. Calcular la media: \( \text{Media} = 20 \)
-2. Calcular las desviaciones: \( |10 - 20| = 10, |15 - 20| = 5, |20 - 20| = 0, |25 - 20| = 5, |30 - 20| = 10 \)
-3. Calcular la desviación media: \( \frac{10 + 5 + 0 + 5 + 10}{5} = 6 \)
+1. Calcular la media: \( \bar{x} = 12 \).
+2. Calcular las diferencias absolutas: \( |4 - 12|, |8 - 12|, |12 - 12|, |16 - 12|, |20 - 12| \).
+3. Sumar las diferencias absolutas: \( 8 + 4 + 0 + 4 + 8 = 24 \).
+4. Dividir por la cantidad de datos: \( \frac{24}{5} = 4.8 \).
             </pre>
             <h3>Ejercicio:</h3>
-            <p>Calcula la desviación media para los datos: 4, 8, 12, 16, 20.</p>
+            <p>Calcula la desviación media para los datos: 10, 12, 14, 16.</p>
             <button onclick="calculateMeanDeviation()">Calcular Desviación Media</button>
             <p id="meanDeviationResult"></p>
         </section>
 
         <section>
-            <h2>6. Desviación Estándar</h2>
-            <p>La desviación estándar indica cuánto varían los datos respecto a la media.</p>
-            <p><strong>Fórmula:</strong> 
-                <span id="desviacionEstandarFormula">\( \text{Desviación Estándar} = \sqrt{\frac{\Sigma (x_i - \bar{x})^2}{n}} \)</span>
+            <h2>Desviación Estándar</h2>
+            <p><strong>Fórmula:</strong></p>
+            <p>
+                \[
+                \text{Desviación Estándar} = \sqrt{\frac{\Sigma (x_i - \bar{x})^2}{n}}
+                \]
                 <a href="https://www.cymath.com/solution/standard-deviation-calculator" target="_blank"><button>Ver Procedimiento en Cymath</button></a>
             </p>
             <p><strong>Ejemplo:</strong> Para los datos 3, 7, 7, 10, 13, 17:</p>
             <pre>
 \[
-\text{Media} = 10.5
-\]
-\[
-\text{Desviación Estándar} = \sqrt{\frac{(3 - 10.5)^2 + (7 - 10.5)^2 + (7 - 10.5)^2 + (10 - 10.5)^2 + (13 - 10.5)^2 + (17 - 10.5)^2}{6}} \approx 4.79
+\text{Desviación Estándar} = \sqrt{\frac{(3-10)^2 + (7-10)^2 + (7-10)^2 + (10-10)^2 + (13-10)^2 + (17-10)^2}{6}} \approx 4.51
 \]
             </pre>
             <h3>Procedimiento:</h3>
             <pre>
-1. Calcular la media: \( \text{Media} = 10.5 \)
-2. Calcular las diferencias al cuadrado: \( (3 - 10.5)^2 = 56.25, (7 - 10.5)^2 = 12.25, (7 - 10.5)^2 = 12.25, (10 - 10.5)^2 = 0.25, (13 - 10.5)^2 = 6.25, (17 - 10.5)^2 = 42.25 \)
-3. Calcular la varianza: \( \frac{56.25 + 12.25 + 12.25 + 0.25 + 6.25 + 42.25}{6} \approx 18.75 \)
-4. Calcular la desviación estándar: \( \sqrt{18.75} \approx 4.33 \)
+1. Calcular la media: \( \bar{x} = 10 \).
+2. Calcular las diferencias al cuadrado: \( (3-10)^2, (7-10)^2, (7-10)^2, (10-10)^2, (13-10)^2, (17-10)^2 \).
+3. Sumar los cuadrados: \( 49 + 9 + 9 + 0 + 9 + 49 = 125 \).
+4. Dividir por la cantidad de datos: \( \frac{125}{6} \approx 20.83 \).
+5. Sacar la raíz cuadrada: \( \sqrt{20.83} \approx 4.51 \).
             </pre>
             <h3>Ejercicio:</h3>
-            <p>Calcula la desviación estándar para los datos: 3, 7, 7, 10, 13, 17.</p>
+            <p>Calcula la desviación estándar para los datos: 2, 4, 4, 4, 5, 5, 7, 9.</p>
             <button onclick="calculateStandardDeviation()">Calcular Desviación Estándar</button>
-            <p id="stdDevResult"></p>
+            <p id="standardDeviationResult"></p>
         </section>
     </main>
     <footer>
-        <p>© 2024 Estadística Básica</p>
+        <p>&copy; 2024 Proyecto de Estadística</p>
     </footer>
     <script src="script.js"></script>
 </body>
