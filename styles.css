@@ -1,37 +1,38 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
+    background-color: #121212; /* Fondo oscuro */
+    color: #ffffff; /* Texto claro */
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
+    line-height: 1.6;
     margin: 0;
     padding: 20px;
-    transition: background-color 0.5s, color 0.5s;
 }
 
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+h1, h2, h3 {
+    color: #bb86fc; /* Color para encabezados */
 }
 
-h1 {
-    margin: 0;
-}
-
-h2 {
-    color: #007BFF;
-}
-
-button {
+.equation {
+    background-color: #1e1e1e; /* Fondo para ecuaciones */
+    border-radius: 5px;
     padding: 10px;
-    margin-top: 10px;
-    cursor: pointer;
+    margin: 15px 0;
 }
 
-.dark-mode {
-    background-color: #333;
-    color: #f4f4f4;
+.exercise {
+    background-color: #1e1e1e; /* Fondo para ejercicios */
+    border-left: 5px solid #bb86fc; /* Borde izquierdo para destacar */
+    padding: 10px;
+    margin: 15px 0;
 }
 
-.dark-mode h2 {
-    color: #66B2FF;
+ol {
+    margin-left: 20px;
+}
+
+ul {
+    margin-left: 20px;
 }
