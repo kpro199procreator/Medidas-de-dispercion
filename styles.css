@@ -32,3 +32,17 @@ h1, h2, h3 {
 ol {
     margin-left: 20px;
 }
+button {
+            background-color: #bb86fc;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #68409a;
+        }
