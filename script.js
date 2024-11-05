@@ -1,7 +1,10 @@
-function redirectToCymath(equation) {
-    const url = `https://www.cymath.com/solver/equation/${encodeURIComponent(equation)}`;
-    window.open(url, '_blank');
-}
+let isDarkMode = false;
+
+document.getElementById('toggleTheme').addEventListener('click', function() {
+    isDarkMode = !isDarkMode;
+    document.body.classList.toggle('dark-theme', isDarkMode);
+    this.textContent = isDarkMode ? 'Modo Claro' : 'Modo Oscuro';
+});
 
 function calculateMean() {
     const values = [8, 12, 15, 10, 17];
