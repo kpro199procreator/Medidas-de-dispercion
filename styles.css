@@ -3,12 +3,22 @@
 }
 
 body {
-    background-color: #121212;
-    color: #ffffff;
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
     margin: 0;
-    padding: 20px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #000;
+}
+
+#moving-object {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(55,81,217,1) 0%, rgba(0,0,0,1) 92%);
+    position: absolute;
+    transition: transform 0.5s;
 }
 
 h1, h2, h3 {
