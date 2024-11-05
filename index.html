@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Estadística Básica</title>
+</head>
+<body>
+    <header>
+        <h1>Estadística Básica: Medidas de Tendencia Central y Dispersión</h1>
+    </header>
+    <main>
+        <section>
+            <h2>1. Media</h2>
+            <p>La media es el promedio de un conjunto de datos.</p>
+            <p><strong>Fórmula:</strong> <code>Media = Σx<sub>i</sub> / n</code></p>
+            <p><strong>Ejemplo:</strong> Para las edades 20, 25, 30, 35, y 40: <code>Media = (20 + 25 + 30 + 35 + 40) / 5 = 30</code></p>
+            <h3>Ejercicio:</h3>
+            <p>Encuentra la media de los números: 8, 12, 15, 10, 17.</p>
+            <button onclick="calculateMean()">Calcular Media</button>
+            <p id="meanResult"></p>
+        </section>
+
+        <section>
+            <h2>2. Mediana</h2>
+            <p>La mediana es el valor central de un conjunto de datos ordenado.</p>
+            <p><strong>Fórmula:</strong> Valor central si <code>n</code> es impar, promedio de los dos valores centrales si <code>n</code> es par.</p>
+            <p><strong>Ejemplo:</strong> Para los datos 15, 18, 22, 26, y 30, la mediana es 22.</p>
+            <h3>Ejercicio:</h3>
+            <p>Encuentra la mediana de los valores: 10, 14, 18, 20, 22, 25, 30.</p>
+            <button onclick="calculateMedian()">Calcular Mediana</button>
+            <p id="medianResult"></p>
+        </section>
+
+        <section>
+            <h2>3. Moda</h2>
+            <p>La moda es el valor que más se repite en un conjunto de datos.</p>
+            <p><strong>Ejemplo:</strong> Para los datos 4, 5, 5, 6, 7, 8, 8, 9, la moda es 5 y 8.</p>
+            <h3>Ejercicio:</h3>
+            <p>Encuentra la moda de los valores: 6, 9, 6, 11, 12, 9, 15.</p>
+            <button onclick="calculateMode()">Calcular Moda</button>
+            <p id="modeResult"></p>
+        </section>
+
+        <section>
+            <h2>4. Rango</h2>
+            <p>El rango es la diferencia entre el valor máximo y el mínimo.</p>
+            <p><strong>Fórmula:</strong> <code>Rango = Valor máximo - Valor mínimo</code></p>
+            <p><strong>Ejemplo:</strong> Para los datos 5, 10, 15, 20, y 25: <code>Rango = 25 - 5 = 20</code></p>
+            <h3>Ejercicio:</h3>
+            <p>Encuentra el rango de los valores: 8, 12, 20, 4, 15.</p>
+            <button onclick="calculateRange()">Calcular Rango</button>
+            <p id="rangeResult"></p>
+        </section>
+
+        <section>
+            <h2>5. Desviación Media</h2>
+            <p>La desviación media mide cuánto se desvían, en promedio, los valores de un conjunto de datos respecto a la media.</p>
+            <p><strong>Fórmula:</strong> <code>Desviación Media = Σ|x<sub>i</sub> - x̄| / n</code></p>
+            <p><strong>Ejemplo:</strong> Para los datos 10, 15, 20, 25, y 30, la desviación media es 6.</p>
+            <h3>Ejercicio:</h3>
+            <p>Calcula la desviación media para los datos: 4, 8, 12, 16, 20.</p>
+            <button onclick="calculateMeanDeviation()">Calcular Desviación Media</button>
+            <p id="meanDeviationResult"></p>
+        </section>
+
+        <section>
+            <h2>6. Desviación Estándar</h2>
+            <p>La desviación estándar indica cuánto varían los datos respecto a la media.</p>
+            <p><strong>Fórmula:</strong> <code>σ = √(Σ(x<sub>i</sub> - x̄)² / n)</code></p>
+            <p><strong>Ejemplo:</strong> Para los datos 5, 10, 10, 15, y 20, la desviación estándar es aproximadamente 5.1.</p>
+            <h3>Ejercicio:</h3>
+            <p>Calcula la desviación estándar para los datos: 3, 7, 7, 10, 13, 17.</p>
+            <button onclick="calculateStandardDeviation()">Calcular Desviación Estándar</button>
+            <p id="stdDevResult"></p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Estadística Básica</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
