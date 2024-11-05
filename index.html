@@ -7,172 +7,74 @@
     <link rel="stylesheet" href="styles.css">
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            MathJax.typeset();
-        });
-    </script>
+    <script src="script.js"></script>
 </head>
 <body>
 
     <h1>Estadística Básica</h1>
-    <p>La estadística es una rama de las matemáticas que se encarga de recolectar, analizar e interpretar datos. En esta página, exploraremos los conceptos de media, moda, mediana, rango, desviación media y desviación estándar.</p>
+    <p>Explora conceptos de media, moda, mediana, rango, desviación media y desviación estándar.</p>
 
+    <!-- Media -->
     <h2>1. Media</h2>
-    <p>La media, o promedio, es el valor obtenido al sumar todos los elementos de un conjunto y dividirlo entre el número total de elementos.</p>
-    <div class="equation">
-        $$ \text{Media} = \frac{\sum_{i=1}^{n} x_i}{n} $$
-    </div>
+    <p>La media es el promedio obtenido al sumar todos los elementos y dividir por la cantidad de elementos.</p>
+    <div class="equation">$$ \text{Media} = \frac{\sum_{i=1}^{n} x_i}{n} $$</div>
     <h3>Ejemplo:</h3>
-    <p>Calculemos la media de los números: 2, 4, 6, 8, 10.</p>
-    <div class="equation">
-        $$ \text{Media} = \frac{2 + 4 + 6 + 8 + 10}{5} = \frac{30}{5} = 6 $$
-    </div>
+    <p>Para los números: 2, 4, 6, 8, 10.</p>
+    <div class="equation">$$ \text{Media} = \frac{2 + 4 + 6 + 8 + 10}{5} = 6 $$</div>
     <h3>Procedimiento:</h3>
     <ol>
-        <li>Sumar todos los números: 2 + 4 + 6 + 8 + 10 = 30.</li>
-        <li>Contar la cantidad de números: hay 5 números.</li>
-        <li>Dividir la suma entre la cantidad de números: 30 \div 5 = 6.</li>
+        <li>Sumar todos los números.</li>
+        <li>Contar la cantidad de números.</li>
+        <li>Dividir la suma entre la cantidad de números.</li>
     </ol>
 
+    <!-- Moda -->
     <h2>2. Moda</h2>
-    <p>La moda es el número que aparece con más frecuencia en un conjunto de datos. Puede haber más de una moda si varios números tienen la misma frecuencia máxima.</p>
-    <h3>Ejemplo:</h3>
-    <p>Para los números: 1, 2, 2, 3, 3, 3, 4, 5, la moda es:</p>
-    <div class="equation">
-        $$ \text{Moda} = 3 $$
-    </div>
+    <p>La moda es el número con mayor frecuencia en un conjunto de datos.</p>
+    <div class="equation">$$ \text{Moda} = 3 $$</div>
     <h3>Procedimiento:</h3>
     <ol>
-        <li>Contar la frecuencia de cada número:</li>
-        <ul>
-            <li>1: 1 vez</li>
-            <li>2: 2 veces</li>
-            <li>3: 3 veces</li>
-            <li>4: 1 vez</li>
-            <li>5: 1 vez</li>
-        </ul>
-        <li>Identificar el número con mayor frecuencia: 3 aparece 3 veces.</li>
+        <li>Contar la frecuencia de cada número.</li>
+        <li>Identificar el número con mayor frecuencia.</li>
     </ol>
-    <h3>Ejercicio:</h3>
-    <div class="exercise">
-        Dados los números: 3, 5, 5, 6, 7, 8, 8, 8, 10. ¿Cuál es la moda?
-    </div>
 
+    <!-- Mediana -->
     <h2>3. Mediana</h2>
-    <p>La mediana es el valor que se encuentra en el medio de un conjunto de datos ordenados.</p>
-    <div class="equation">
-        $$ 
+    <p>La mediana es el valor en el medio de un conjunto de datos ordenados.</p>
+    <div class="equation">$$ 
         \text{Mediana} = 
         \begin{cases} 
         x_{\left(\frac{n+1}{2}\right)} & \text{si } n \text{ es impar} \\ 
         \frac{x_{\left(\frac{n}{2}\right)} + x_{\left(\frac{n}{2} + 1\right)}}{2} & \text{si } n \text{ es par} 
         \end{cases} 
-        $$
-    </div>
-    <h3>Ejemplo:</h3>
-    <p>Para los números: 1, 3, 3, 6, 7, 8, 9:</p>
-    <div class="equation">
-        $$ \text{Mediana} = 6 $$
-    </div>
+        $$</div>
     <h3>Procedimiento:</h3>
     <ol>
-        <li>Ordenar los números: 1, 3, 3, 6, 7, 8, 9.</li>
-        <li>Contar cuántos números hay: hay 7 números (impar).</li>
-        <li>Identificar el número del medio: x_{\left(\frac{7+1}{2}\right)} = x_4 = 6.</li>
+        <li>Ordenar los números.</li>
+        <li>Identificar el número del medio.</li>
     </ol>
-    <h3>Ejercicio:</h3>
-    <div class="exercise">
-        Dados los números: 10, 12, 23, 23, 16, 23, 21, 16. ¿Cuál es la mediana?
-    </div>
 
+    <!-- Rango -->
     <h2>4. Rango</h2>
-    <p>El rango es la diferencia entre el valor máximo y el mínimo de un conjunto de datos.</p>
-    <div class="equation">
-        $$ \text{Rango} = \text{Max} - \text{Min} $$
-    </div>
-    <h3>Ejemplo:</h3>
-    <p>Para los números: 3, 7, 2, 5:</p>
-    <div class="equation">
-        $$ \text{Rango} = 7 - 2 = 5 $$
-    </div>
+    <p>El rango es la diferencia entre el valor máximo y mínimo.</p>
+    <div class="equation">$$ \text{Rango} = \text{Max} - \text{Min} $$</div>
     <h3>Procedimiento:</h3>
     <ol>
-        <li>Identificar el máximo: 7.</li>
-        <li>Identificar el mínimo: 2.</li>
-        <li>Restar el mínimo del máximo: 7 - 2 = 5.</li>
+        <li>Identificar el máximo y el mínimo.</li>
+        <li>Restar el mínimo del máximo.</li>
     </ol>
-    <h3>Ejercicio:</h3>
-    <div class="exercise">
-        Dados los números: 5, 11, 3, 6, 9. ¿Cuál es el rango?
-    </div>
 
+    <!-- Desviación Media -->
     <h2>5. Desviación Media</h2>
-    <p>La desviación media es el promedio de las diferencias absolutas entre cada valor y la media del conjunto.</p>
-    <div class="equation">
-        $$ \text{Desviación Media} = \frac{\sum_{i=1}^{n} |x_i - \text{Media}|}{n} $$
-    </div>
-    <h3>Ejemplo:</h3>
-    <p>Para los números: 2, 4, 6, 8, 10.</p>
-    <div class="equation">
-        $$ \text{Media} = 6 $$
-    </div>
-    <p>Cálculo de la desviación media:</p>
-    <div class="equation">
-        $$ 
-        \text{Desviación Media} = \frac{|2-6| + |4-6| + |6-6| + |8-6| + |10-6|}{5} = \frac{4 + 2 + 0 + 2 + 4}{5} = \frac{12}{5} = 2.4 
-        $$
-    </div>
-    <h3>Procedimiento:</h3>
-    <ol>
-        <li>Calcular la media (ya calculada).</li>
-        <li>Restar la media de cada número y tomar el valor absoluto.</li>
-        <li>Sumar las diferencias absolutas.</li>
-        <li>Dividir la suma de las diferencias absolutas entre el número total de elementos.</li>
-    </ol>
-    <h3>Ejercicio:</h3>
-    <div class="exercise">
-        Dados los números: 3, 5, 7, 9, 11. ¿Cuál es la desviación media?
-    </div>
+    <p>Es el promedio de las diferencias absolutas entre cada valor y la media.</p>
+    <div class="equation">$$ \text{Desviación Media} = \frac{\sum_{i=1}^{n} |x_i - \text{Media}|}{n} $$</div>
 
+    <!-- Desviación Estándar -->
     <h2>6. Desviación Estándar</h2>
-    <p>La desviación estándar es una medida que indica el grado de dispersión de un conjunto de datos respecto a su media.</p>
-    <div class="equation">
-        $$ 
+    <p>La desviación estándar mide la dispersión respecto a la media.</p>
+    <div class="equation">$$ 
         \sigma = \sqrt{\frac{\sum_{i=1}^{n} (x_i - \text{Media})^2}{n}} 
-        $$
-    </div>
-    <h3>Ejemplo:</h3>
-    <p>Para los números: 2, 4, 6, 8, 10, la media ya calculada es:</p>
-    <div class="equation">
-        $$ \text{Media} = 6 $$
-    </div>
-    <p>Cálculo de la desviación estándar:</p>
-    <div class="equation">
-        $$ 
-        \sigma = \sqrt{\frac{(2-6)^2 + (4-6)^2 + (6-6)^2 + (8-6)^2 + (10-6)^2}{5}} 
-        = \sqrt{\frac{16 + 4 + 0 + 4 + 16}{5}} 
-        = \sqrt{\frac{40}{5}} 
-        = \sqrt{8} 
-        \approx 2.83 
-        $$
-    </div>
-    <h3>Procedimiento:</h3>
-    <ol>
-        <li>Calcular la media (ya calculada).</li>
-        <li>Restar la media de cada número y elevar al cuadrado el resultado.</li>
-        <li>Sumar todas las diferencias al cuadrado.</li>
-        <li>Dividir por el número total de elementos (n).</li>
-        <li>Tomar la raíz cuadrada del resultado.</li>
-    </ol>
-    <h3>Ejercicio:</h3>
-    <div class="exercise">
-        Dados los números: 3, 6, 9, 12, 15. ¿Cuál es la desviación estándar?
-    </div>
+        $$</div>
 
-    <h2>Conclusión</h2>
-    <p>Estos conceptos son fundamentales en la estadística y son herramientas valiosas para el análisis de datos. Comprender cómo calcular y aplicar la media, moda, mediana, rango, desviación media y desviación estándar es esencial para interpretar correctamente cualquier conjunto de datos.</p>
-
-    <script src="script.js"></script>
 </body>
 </html>
