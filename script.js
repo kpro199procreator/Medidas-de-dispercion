@@ -1,8 +1,8 @@
 // Configuración de MathJax
 MathJax = {
     tex: {
-        inlineMath: [['$', '$'], ['\', '\']],
-        displayMath: [['$$', '$$'], ['\', '\']]
+        inlineMath: [['$', '$'], ['\', '\'], ['\\{', '\\}']], // Delimitadores para inline
+        displayMath: [['$$', '$$'], ['\', '\'], ['\\{', '\\}']] // Delimitadores para display
     },
     svg: {
         fontCache: 'global'
