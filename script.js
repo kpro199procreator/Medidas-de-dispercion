@@ -32,3 +32,14 @@ MathJax = {
 window.onload = function () {
     MathJax.typeset();
 };
+
+const obj = document.getElementById("moving-object");
+
+function moveObject() {
+    const x = Math.random() * (window.innerWidth - 100);
+    const y = Math.random() * (window.innerHeight - 100);
+    obj.style.transform = `translate(${x}px, ${y}px)`;
+}
+
+// Mover el objeto cada 0.5 segundos
+setInterval(moveObject, 500);
