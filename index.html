@@ -5,8 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Estadística Básica</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    { left: "\", right: "\", display: false },
+                    { left: "\", right: "\", display: true }
+                ]
+            });
+        });
+    </script>
 </head>
 <body>
     <header>
@@ -163,73 +174,85 @@
             <h3>Procedimiento:</h3>
             <pre>
 1. Calcular la media: \bar{x} = 8.4.
-2. Calcular las diferencias al cuadrado: (3 - 8.4)^2, (7 - 8.4)^2, (7 - 8.4)^2, (10 - 8.4)^2, (15 - 8.4)^2.
-3. Sumar las diferencias al cuadrado.
-4. Dividir por la cantidad de datos y luego calcular la raíz cuadrada.
+2. Calcular las diferencias al cuadrado: (3 - 8.4)^2, (7 - 8.4)^2, (10 - 8.4)^2, (15 - 8.4)^2.
+3. Sumar las diferencias al cuadrado: 29.16 + 1.96 + 1.96 + 2.56 + 44.56 = 80.2.
+4. Dividir por la cantidad de datos: \frac{80.2}{5} = 16.04.
+5. Calcular la raíz cuadrada: \sqrt{16.04} \approx 4.01.
             </pre>
             <h3>Ejercicio:</h3>
-            <p>Calcula la desviación estándar para los datos: 5, 7, 8, 12.</p>
+            <p>Calcula la desviación estándar para los datos: 5, 10, 15, 20.</p>
             <button onclick="calculateStandardDeviation()">Calcular Desviación Estándar</button>
-            <p id="standardDeviationResult"></p>
+            <p id="stdDeviationResult"></p>
         </section>
     </main>
-
     <footer>
         <p>&copy; 2024 Estadística Básica</p>
     </footer>
-
     <script>
         function calculateMean() {
-            const data = [5, 15, 20, 25, 30];
-            const mean = data.reduce((sum, value) => sum + value, 0) / data.length;
-            document.getElementById("meanResult").innerText = `La media es: ${mean}`;
+            const numbers = [5, 15, 20, 25, 30];
+            const sum = numbers.reduce((a, b) => a + b, 0);
+            const mean = sum / numbers.length;
+            document.getElementById('meanResult').innerText = 'La media es: ' + mean.toFixed(2);
         }
 
         function calculateMedian() {
-            const data = [5, 3, 8, 1, 4];
-            data.sort((a, b) => a - b);
-            const n = data.length;
-            const median = n % 2 === 0 
-                ? (data[n / 2 - 1] + data[n / 2]) / 2 
-                : data[Math.floor(n / 2)];
-            document.getElementById("medianResult").innerText = `La mediana es: ${median}`;
+            const numbers = [5, 3, 8, 1, 4];
+            numbers.sort((a, b) => a - b);
+            const n = numbers.length;
+            const median = n % 2 === 0 ?
+                (numbers[n / 2 - 1] + numbers[n / 2]) / 2 :
+                numbers[Math.floor(n / 2)];
+            document.getElementById('medianResult').innerText = 'La mediana es: ' + median;
         }
 
         function calculateMode() {
-            const data = [1, 2, 2, 3, 3, 3, 4];
+            const numbers = [1, 2, 2, 3, 3, 3, 4];
             const frequency = {};
-            data.forEach(num => {
+            let maxFreq = 0;
+            let mode = [];
+
+            numbers.forEach(num => {
                 frequency[num] = (frequency[num] || 0) + 1;
+                if (frequency[num] > maxFreq) {
+                    maxFreq = frequency[num];
+                }
             });
-            const modes = Object.keys(frequency).filter(num => frequency[num] === Math.max(...Object.values(frequency)));
-            document.getElementById("modeResult").innerText = `La moda es: ${modes.join(', ')}`;
+
+            for (const num in frequency) {
+                if (frequency[num] === maxFreq) {
+                    mode.push(num);
+                }
+            }
+
+            document.getElementById('modeResult').innerText = 'La moda es: ' + mode.join(', ');
         }
 
         function calculateRange() {
-            const data = [8, 12, 20, 4, 15];
-            const max = Math.max(...data);
-            const min = Math.min(...data);
+            const numbers = [8, 12, 20, 4, 15];
+            const max = Math.max(...numbers);
+            const min = Math.min(...numbers);
             const range = max - min;
-            document.getElementById("rangeResult").innerText = `El rango es: ${range}`;
+            document.getElementById('rangeResult').innerText = 'El rango es: ' + range;
         }
 
         function calculateMeanDeviation() {
-            const data = [10, 12, 14, 16];
-            const mean = data.reduce((sum, value) => sum + value, 0) / data.length;
-            const meanDeviation = data.reduce((sum, value) => sum + Math.abs(value - mean), 0) / data.length;
-            document.getElementById("meanDeviationResult").innerText = `La desviación media es: ${meanDeviation}`;
+            const numbers = [10, 12, 14, 16];
+            const mean = numbers.reduce((a, b) => a + b, 0) / numbers.length;
+            const meanDeviation = numbers.reduce((a, b) => a + Math.abs(b - mean), 0) / numbers.length;
+            document.getElementById('meanDeviationResult').innerText = 'La desviación media es: ' + meanDeviation.toFixed(2);
         }
 
         function calculateStandardDeviation() {
-            const data = [5, 7, 8, 12];
-            const mean = data.reduce((sum, value) => sum + value, 0) / data.length;
-            const variance = data.reduce((sum, value) => sum + Math.pow(value - mean, 2), 0) / data.length;
-            const standardDeviation = Math.sqrt(variance);
-            document.getElementById("standardDeviationResult").innerText = `La desviación estándar es: ${standardDeviation}`;
+            const numbers = [5, 10, 15, 20];
+            const mean = numbers.reduce((a, b) => a + b, 0) / numbers.length;
+            const variance = numbers.reduce((a, b) => a + Math.pow(b - mean, 2), 0) / numbers.length;
+            const stdDeviation = Math.sqrt(variance);
+            document.getElementById('stdDeviationResult').innerText = 'La desviación estándar es: ' + stdDeviation.toFixed(2);
         }
 
-        document.getElementById('toggleTheme').addEventListener('click', function() {
-            document.body.classList.toggle('dark-theme');
+        document.getElementById("toggleTheme").addEventListener("click", function() {
+            document.body.classList.toggle("dark-mode");
         });
     </script>
 </body>
