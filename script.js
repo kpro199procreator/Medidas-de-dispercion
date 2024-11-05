@@ -29,4 +29,6 @@ MathJax = {
     }
 };
 
-// Inicializa Math
+window.onload = function () {
+    MathJax.typeset();
+};
