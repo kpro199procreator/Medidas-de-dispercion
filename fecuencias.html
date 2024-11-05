@@ -135,7 +135,7 @@
 
     <section id="dataSection" style="display: none;">
         <h2>Tabla de Frecuencias</h2>
-        <table>
+             <table>
             <thead>
                 <tr>
                     <th>Intervalo de Clase</th>
@@ -145,44 +145,54 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>50 - 55</td>
-                    <td>53, 53, 54, 55</td>
+                    <td>50 - 54</td>
+                    <td>53, 53, 54</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>55 - 59</td>
+                    <td>57, 59</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>60 - 64</td>
+                    <td>60, 61, 61, 61</td>
                     <td>4</td>
                 </tr>
                 <tr>
-                    <td>56 - 61</td>
-                    <td>57, 59, 60, 60, 61, 61, 61</td>
-                    <td>7</td>
+                    <td>65 - 69</td>
+                    <td>68, 68, 68, 69</td>
+                    <td>4</td>
                 </tr>
                 <tr>
-                    <td>62 - 67</td>
-                    <td>62, 62, 62, 63, 63, 63, 65, 65, 66, 66, 67, 67</td>
-                    <td>12</td>
+                    <td>70 - 74</td>
+                    <td>74, 74, 74</td>
+                    <td>3</td>
                 </tr>
                 <tr>
-                    <td>68 - 73</td>
-                    <td>68, 68, 68, 69, 69, 71, 71, 71, 72, 72, 73, 73, 73</td>
-                    <td>15</td>
-                </tr>
-                <tr>
-                    <td>74 - 79</td>
-                    <td>74, 74, 74, 75, 75, 75, 75, 75, 75, 75, 76, 76, 76, 76, 76, 77, 77, 78, 78, 78, 78, 78, 79</td>
+                    <td>75 - 79</td>
+                    <td>75, 75, 75, 75, 75, 75, 76, 76, 76, 76, 76, 77, 77, 78, 78, 78, 78, 78, 79</td>
                     <td>23</td>
                 </tr>
                 <tr>
-                    <td>80 - 85</td>
-                    <td>80, 81, 82, 82, 83, 83, 84, 85, 85, 85, 85, 85, 86, 86</td>
-                    <td>14</td>
+                    <td>80 - 84</td>
+                    <td>80, 81, 82, 82, 83, 83, 84</td>
+                    <td>7</td>
                 </tr>
                 <tr>
-                    <td>86 - 91</td>
-                    <td>87, 87, 88, 88, 88, 89, 89, 90</td>
-                    <td>8</td>
-                </tr>
-                <tr>
-                    <td>92 - 97</td>
-                    <td>93, 93, 94, 95, 96, 97</td>
+                    <td>85 - 89</td>
+                    <td>87, 87, 88, 88, 88, 89</td>
                     <td>6</td>
+                </tr>
+                <tr>
+                    <td>90 - 94</td>
+                    <td>93, 93, 94</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>95 - 99</td>
+                    <td>96, 97</td>
+                    <td>2</td>
                 </tr>
             </tbody>
         </table>
@@ -208,26 +218,28 @@
         &copy; 2024 Kevin (sucuboy_core). Todos los derechos reservados.
     </footer>
 
-    <script>
-        function toggleDarkMode() {
-            document.body.classList.toggle('dark');
-        }
+    <script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
 
-        function validateLogin(event) {
-            event.preventDefault();
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyAbkQ4deehOnfgNfXj7VpdpH8nDaIbBDgc",
+    authDomain: "dev-pages-b2359.firebaseapp.com",
+    projectId: "dev-pages-b2359",
+    storageBucket: "dev-pages-b2359.firebasestorage.app",
+    messagingSenderId: "3934674944",
+    appId: "1:3934674944:web:327ff1f751e5a9e0ef78e5",
+    measurementId: "G-JS246W1V1P"
+  };
 
-            // Verificar las credenciales (puedes personalizar esto)
-            if (username === 'valdo' && password === 'vv') {
-                // Mostrar las secciones y ocultar el formulario
-                document.getElementById('loginSection').style.display = 'none';
-                document.getElementById('dataSection').style.display = 'block';
-                document.getElementById('analysisSection').style.display = 'block';
-            } else {
-                alert('Credenciales incorrectas. Intenta de nuevo.');
-            }
-        }
-    </script>
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
 </body>
 </html>
