@@ -3,8 +3,8 @@
 }
 
 body {
-    background-color: #121212; /* Fondo oscuro */
-    color: #ffffff; /* Texto claro */
+    background-color: #121212;
+    color: #ffffff;
     font-family: Arial, sans-serif;
     line-height: 1.6;
     margin: 0;
@@ -12,19 +12,12 @@ body {
 }
 
 h1, h2, h3 {
-    color: #bb86fc; /* Color para encabezados */
+    color: #bb86fc;
 }
 
 .equation {
-    background-color: #1e1e1e; /* Fondo para ecuaciones */
+    background-color: #1e1e1e;
     border-radius: 5px;
-    padding: 10px;
-    margin: 15px 0;
-}
-
-.exercise {
-    background-color: #1e1e1e; /* Fondo para ejercicios */
-    border-left: 5px solid #bb86fc; /* Borde izquierdo para destacar */
     padding: 10px;
     margin: 15px 0;
 }
