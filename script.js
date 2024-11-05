@@ -29,20 +29,4 @@ MathJax = {
     }
 };
 
-// Inicializa MathJax al cargar la ventana
-window.onload = function () {
-    MathJax.typeset();
-};
-
-// Selecciona el objeto que se moverá
-const obj = document.getElementById("moving-object");
-
-// Función para mover el objeto a una posición aleatoria
-function moveObject() {
-    const x = Math.random() * (window.innerWidth - 100); // 100 es el ancho del objeto
-    const y = Math.random() * (window.innerHeight - 100); // 100 es la altura del objeto
-    obj.style.transform = `translate(${x}px, ${y}px)`; // Aplica la transformación
-}
-
-// Mueve el objeto cada 0.5 segundos
-setInterval(moveObject, 500);
+// Inicializa Math
