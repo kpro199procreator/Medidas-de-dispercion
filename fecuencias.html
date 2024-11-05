@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla de Frecuencias y Análisis de Calificaciones</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #333;
+            color: white;
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        section {
+            margin-bottom: 20px;
+            background: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #4a90e2;
+            color: white;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9em;
+        }
+
+        /* Modo oscuro */
+        .dark {
+            background-color: #333;
+            color: #f4f4f4;
+        }
+
+        .dark header {
+            background: #222;
+        }
+
+        .dark section {
+            background: #444;
+            color: #f4f4f4;
+        }
+
+        .dark th {
+            background-color: #555;
+        }
+
+        .dark td {
+            border-color: #666;
+        }
+
+        /* Estilo del formulario de inicio de sesión */
+        #loginForm {
+            display: flex;
+            flex-direction: column;
+            margin: 20px 0;
+            padding: 15px;
+            border-radius: 8px;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #loginForm input {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Tabla de Frecuencias y Análisis de Calificaciones</h1>
+        <button onclick="toggleDarkMode()">Modo Oscuro</button>
+    </header>
+
+    <!-- Formulario de inicio de sesión -->
+    <section id="loginSection">
+        <h2>Iniciar Sesión</h2>
+        <form id="loginForm" onsubmit="return validateLogin(event)">
+            <input type="text" id="username" placeholder="Usuario" required>
+            <input type="password" id="password" placeholder="Contraseña" required>
+            <button type="submit">Ingresar</button>
+        </form>
+    </section>
+
+    <section id="dataSection" style="display: none;">
+        <h2>Tabla de Frecuencias</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Intervalo de Clase</th>
+                    <th>Conteo de Calificaciones</th>
+                    <th>Frecuencia (f)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>50 - 55</td>
+                    <td>53, 53, 54, 55</td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td>56 - 61</td>
+                    <td>57, 59, 60, 60, 61, 61, 61</td>
+                    <td>7</td>
+                </tr>
+                <tr>
+                    <td>62 - 67</td>
+                    <td>62, 62, 62, 63, 63, 63, 65, 65, 66, 66, 67, 67</td>
+                    <td>12</td>
+                </tr>
+                <tr>
+                    <td>68 - 73</td>
+                    <td>68, 68, 68, 69, 69, 71, 71, 71, 72, 72, 73, 73, 73</td>
+                    <td>15</td>
+                </tr>
+                <tr>
+                    <td>74 - 79</td>
+                    <td>74, 74, 74, 75, 75, 75, 75, 75, 75, 75, 76, 76, 76, 76, 76, 77, 77, 78, 78, 78, 78, 78, 79</td>
+                    <td>23</td>
+                </tr>
+                <tr>
+                    <td>80 - 85</td>
+                    <td>80, 81, 82, 82, 83, 83, 84, 85, 85, 85, 85, 85, 86, 86</td>
+                    <td>14</td>
+                </tr>
+                <tr>
+                    <td>86 - 91</td>
+                    <td>87, 87, 88, 88, 88, 89, 89, 90</td>
+                    <td>8</td>
+                </tr>
+                <tr>
+                    <td>92 - 97</td>
+                    <td>93, 93, 94, 95, 96, 97</td>
+                    <td>6</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section id="analysisSection" style="display: none;">
+        <h2>Resultados del Análisis</h2>
+        <ul>
+            <li><strong>Calificación más alta:</strong> 97</li>
+            <li><strong>Calificación más baja:</strong> 53</li>
+            <li><strong>Rango:</strong> 44</li>
+            <li><strong>Las cinco calificaciones más altas:</strong> 97, 96, 95, 94, 93</li>
+            <li><strong>Las cinco calificaciones más bajas:</strong> 53, 57, 59, 60, 60</li>
+            <li><strong>Décimo lugar más alto:</strong> 88</li>
+            <li><strong>Número de estudiantes con calificaciones de 75 o más:</strong> 51</li>
+            <li><strong>Número de estudiantes con calificaciones menores que 85:</strong> 75</li>
+            <li><strong>Porcentaje de estudiantes con calificaciones entre 65 y 85:</strong> 59.77%</li>
+            <li><strong>Calificaciones ausentes:</strong> 54, 55, 56, 58, 64, 70, 80, 91, 92</li>
+        </ul>
+    </section>
+
+    <footer>
+        &copy; 2024 Análisis de Calificaciones. Todos los derechos reservados.
+    </footer>
+
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark');
+        }
+
+        function validateLogin(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Verificar las credenciales (puedes personalizar esto)
+            if (username === 'valdo' && password === 'vv') {
+                // Mostrar las secciones y ocultar el formulario
+                document.getElementById('loginSection').style.display = 'none';
+                document.getElementById('dataSection').style.display = 'block';
+                document.getElementById('analysisSection').style.display = 'block';
+            } else {
+                alert('Credenciales incorrectas. Intenta de nuevo.');
+            }
+        }
+    </script>
+</body>
+</html>
