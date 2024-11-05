@@ -32,3 +32,7 @@ MathJax = {
 window.onload = function () {
     MathJax.typeset();
 };
+function redirect() {
+            // Cambia la URL a la que deseas redirigir
+            window.location.href = "fecuencias.html"; // Reemplaza con tu URL
+        }
