@@ -47,7 +47,7 @@ function redirect() {
             const password = document.getElementById('password').value;
 
             // Verificar las credenciales (puedes personalizar esto)
-            if (username === 'valdo' && password === 'vv') {
+            if (username === 'admin' && password === 'admin') {
                 // Mostrar las secciones y ocultar el formulario
                 document.getElementById('loginSection').style.display = 'none';
                 document.getElementById('dataSection').style.display = 'block';
