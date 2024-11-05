@@ -1,44 +1,41 @@
-* {
-    box-sizing: border-box;
-}
+/* styles.css */
 
+/* Estilos generales para el cuerpo */
 body {
     margin: 0;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #000;
+    padding: 0;
+    font-family: Arial, sans-serif; /* Fuente general */
+    background: linear-gradient(to right, #4A90E2, #9013FE); /* Fondo degradado */
+    color: #ffffff; /* Color de texto */
+    overflow: hidden; /* Evitar barras de desplazamiento */
 }
 
-#moving-object {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(55,81,217,1) 0%, rgba(0,0,0,1) 92%);
-    position: absolute;
-    transition: transform 0.5s;
-}
-
+/* Títulos */
 h1, h2, h3 {
-    color: #bb86fc;
+    margin: 20px 0;
 }
 
+/* Estilo para las ecuaciones */
 .equation {
-    background-color: #1e1e1e;
-    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.2); /* Fondo semi-transparente para las ecuaciones */
     padding: 10px;
-    margin: 15px 0;
+    border-radius: 5px;
 }
 
+/* Estilo para los procedimientos */
 .procedure-box {
-    background-color: #333;
+    background-color: rgba(255, 255, 255, 0.1); /* Fondo semi-transparente para el procedimiento */
     padding: 10px;
     border-radius: 5px;
-    margin: 10px 0;
 }
 
-ol {
-    margin-left: 20px;
+/* Estilo para el objeto en movimiento */
+#moving-object {
+    width: 100px; /* Ajusta el tamaño según sea necesario */
+    height: 100px; /* Ajusta el tamaño según sea necesario */
+    background-color: rgba(255, 255, 255, 0.5); /* Color blanco semi-transparente */
+    border-radius: 50%; /* Hacer que el objeto sea circular */
+    position: absolute; /* Permite que se mueva libremente en el fondo */
+    transition: transform 0.5s ease; /* Suaviza el movimiento */
+    z-index: 0; /* Asegúrate de que esté detrás del contenido */
 }
